@@ -6,13 +6,13 @@ try
 {
     using var sr = new StreamReader("poems.txt");
     var poems = new List<string>();
-    var counter = 489;
+    var counter = 754;
     const string resultFolder = "result";
     var today = DateTime.Now.ToString("yyyy-M-d");
     string? line;
     const string layout = "post";
-    const string user = "حافظ";
-    const string tags = "حافظ غزل";
+    const string user = "سعدی";
+    const string tags = "سعدی غزل";
     const string categories = "poem";
     const string template = "---" +
                             "\n" +
