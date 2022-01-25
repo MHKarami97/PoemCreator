@@ -1,12 +1,35 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using PoemCreator;
 
 Console.WriteLine("Start");
 
 try
 {
+    const bool needFormat = false;
+
+    if (needFormat)
+    {
+        /*
+         
+        Mo(.*?)\]
+        دیوان اشعار, غزلیات - سعدی
+        -
+        ^$\n
+        \n => / 
+        - => \n
+        ^ / 
+         / $
+ 
+         */
+        var txt = @"";
+
+        var formatter = new Formatter();
+
+        var resultD = formatter.Format(txt);
+    }
+
     using var sr = new StreamReader("poems.txt");
     var poems = new List<string>();
-    var counter = 754;
+    var counter = 829;
     const string resultFolder = "result";
     var today = DateTime.Now.ToString("yyyy-M-d");
     string? line;
