@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace PoemCreator;
+namespace SiteDataCreator.Poem;
 
 public class Formatter
 {

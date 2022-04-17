@@ -8,7 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Update="poems.txt">
+      <None Update="Poem\poems.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Video\videos.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>
