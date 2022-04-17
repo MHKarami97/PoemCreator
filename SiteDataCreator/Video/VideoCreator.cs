@@ -10,6 +10,9 @@ public static class VideoCreator
         {
             Console.WriteLine("Start");
 
+            /*
+             *  get all file names:   dir /b > filenames.txt
+             */
             using var sr = new StreamReader("Video/videos.txt");
             const string resultFolder = "resultVideo";
             var today = DateTime.Now.ToString("yyyy-MM-dd");
