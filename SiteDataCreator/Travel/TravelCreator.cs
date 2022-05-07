@@ -1,6 +1,6 @@
 ﻿namespace SiteDataCreator.Travel;
 
-public static class ImageCreator
+public static class TravelCreator
 {
     public static void Create()
     {
@@ -8,7 +8,7 @@ public static class ImageCreator
         {
             Console.WriteLine("Start");
 
-            const int counter = 255;
+            const int counter = 406;
             const string line = "---";
             const string resultFolder = "resultTravel";
             var today = DateTime.Now.ToString("yyyy-MM-dd");
