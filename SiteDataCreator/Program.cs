@@ -5,10 +5,36 @@ using SiteDataCreator.Video;
 
 try
 {
-    //VideoCreator.Create();
-    //TravelCreator.Create();
-    ImageCreator.Create();
-    //PoemCreator.Create();
+    Console.WriteLine("enter item:");
+    Console.WriteLine("v : Video");
+    Console.WriteLine("i : Image");
+    Console.WriteLine("t : Travel");
+    Console.WriteLine("p : Poem");
+
+    var witch = Console.ReadLine()?.ToLower();
+
+    switch (witch)
+    {
+        case "v":
+            await VideoCreator.Create();
+            break;
+
+        case "t":
+            await TravelCreator.Create();
+            break;
+
+        case "i":
+            await ImageCreator.Create();
+            break;
+
+        case "p":
+            await PoemCreator.Create();
+            break;
+
+        default:
+            Console.WriteLine("not valid input");
+            break;
+    }
 }
 catch (Exception e)
 {

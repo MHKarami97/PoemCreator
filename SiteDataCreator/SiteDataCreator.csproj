@@ -9,7 +9,7 @@
 
     <ItemGroup>
       <None Update="Poem\poems.txt">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Video\videos.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -4,7 +4,7 @@ namespace SiteDataCreator.Video;
 
 public static class VideoCreator
 {
-    public static void Create()
+    public static async Task Create()
     {
         try
         {
@@ -13,7 +13,6 @@ public static class VideoCreator
             /*
              *  get all file names:   dir /b > filenames.txt
              */
-            using var sr = new StreamReader("Video/videos.txt");
             const string resultFolder = "resultVideo";
             var today = DateTime.Now.ToString("yyyy-MM-dd");
             var items = new List<string>();
@@ -23,52 +22,53 @@ public static class VideoCreator
             const string tags = "none";
             const string categories = "none";
 
-            var template = "---" +
-                           "\n" +
-                           $"layout: {layout}" +
-                           "\n" +
-                           "title:";
+            const string template = "---" +
+                                    "\n" +
+                                    $"layout: {layout}" +
+                                    "\n" +
+                                    "title:";
 
             var template1 = "\n" +
                             $"dates: {today}" +
                             "\n" +
                             "description:";
 
-            var template2 = "\n" +
-                            "img: ";
+            const string template2 = "\n" +
+                                     "img: ";
 
-            var template3 = "\n" +
-                            $"tags: [{tags}]" +
-                            "\n" +
-                            $"categories: [{categories}]" +
-                            "\n" +
-                            "---" +
-                            "\n" +
-                            "\n";
+            const string template3 = "\n" +
+                                     $"tags: [{tags}]" +
+                                     "\n" +
+                                     $"categories: [{categories}]" +
+                                     "\n" +
+                                     "---" +
+                                     "\n" +
+                                     "\n";
 
-            var template4 =
-                "[imdb]()  " +
-                "\n" +
-                "[RottenTomatoes]()";
+            const string template4 = "[imdb]()  " +
+                                     "\n" +
+                                     "[RottenTomatoes]()";
 
-            while ((line = sr.ReadLine()) != null)
+            using var sr = new StreamReader("Video/videos.txt");
+
+            while ((line = await sr.ReadLineAsync()) != null)
             {
                 items.Add(line);
             }
 
-            Directory.CreateDirectory(resultFolder);
+            var directoryInfo = Directory.CreateDirectory(resultFolder);
 
             foreach (var item in items)
             {
                 try
                 {
-                    using var sw = new StreamWriter($"{resultFolder}\\{today}-{item}.md");
+                    await using var sw = new StreamWriter($"{resultFolder}\\{today}-{item}.md");
 
                     var title = GetTitle(item);
 
                     var resultText = $"{template}{title}{template1}{title}{template2}{item}.jpg{template3}{template4}";
 
-                    sw.WriteLine(resultText);
+                    await sw.WriteLineAsync(resultText);
                 }
                 catch (Exception e)
                 {
@@ -77,6 +77,7 @@ public static class VideoCreator
             }
 
             Console.WriteLine("finish");
+            Console.WriteLine(directoryInfo.FullName);
         }
         catch (Exception e)
         {
