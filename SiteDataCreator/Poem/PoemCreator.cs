@@ -12,7 +12,6 @@ public static class PoemCreator
             var counter = 1296;
             const string resultFolder = "resultPoem";
             var today = DateTime.Now.ToString("yyyy-MM-dd");
-            var today2 = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffffff");
             string? line;
             const string layout = "post";
             const string user = "سعدی";
@@ -27,12 +26,12 @@ public static class PoemCreator
                            $"tags: {tags}" +
                            "\n" +
                            $"categories: {categories}" +
-                           "\n" +
-                           $"date: {today2}" +
-                           "\n" +
-                           "---" +
-                           "\n" +
                            "\n";
+
+            const string template1 = "\n" +
+                                     "---" +
+                                     "\n" +
+                                     "\n";
 
             using var sr = new StreamReader("Poem/poems.txt");
 
@@ -49,7 +48,10 @@ public static class PoemCreator
                 {
                     await using var sw = new StreamWriter($"{resultFolder}\\{today}-p{counter}.md");
 
-                    await sw.WriteAsync(template + poem);
+                    await sw.WriteAsync(template +
+                                        $"date: {DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffffff")}" +
+                                        template1 +
+                                        poem);
 
                     counter++;
                 }
