@@ -6,13 +6,13 @@ public static class ImageCreator
     {
         try
         {
-            const int last = 283;
+            const int last = 340;
             const string resultFolder = "resultImage";
 
             const string template = "<p align=\"center\"><img src=\"/assets/img/47-kurdistan/";
             const string template2 = ".jpg\" alt=\"mhkarami97\" /></p>\n";
 
-            const string template3 = "![mhkarami97](/assets/img/55-neor_lake_to_subatan/";
+            const string template3 = "![mhkarami97](/assets/img/66-dezful/";
             const string template4 = ".jpg)  \n";
 
             var directoryInfo = Directory.CreateDirectory(resultFolder);
@@ -23,7 +23,7 @@ public static class ImageCreator
             {
                 try
                 {
-                    await sw.WriteLineAsync(template3 + i.ToString("000") + template4 + "  \n");
+                    await sw.WriteLineAsync(template3 + i.ToString("000") + template4);
                 }
                 catch (Exception e)
                 {

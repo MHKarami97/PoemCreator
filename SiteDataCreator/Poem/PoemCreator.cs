@@ -9,13 +9,13 @@ public static class PoemCreator
             Console.WriteLine("Start");
 
             var poems = new List<string>();
-            var counter = 1296;
+            var counter = 2081;
             const string resultFolder = "resultPoem";
-            var today = DateTime.Now.ToString("yyyy-MM-dd");
+            var today = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
             string? line;
             const string layout = "post";
-            const string user = "سعدی";
-            const string tags = "سعدی غزل";
+            const string user = "رهی‌معیری";
+            const string tags = "رهی‌معیری غزل";
             const string categories = "poem";
             var template = "---" +
                            "\n" +
@@ -49,7 +49,7 @@ public static class PoemCreator
                     await using var sw = new StreamWriter($"{resultFolder}\\{today}-p{counter}.md");
 
                     await sw.WriteAsync(template +
-                                        $"date: {DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.ffffff")}" +
+                                        $"date: {DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd hh:mm:ss.ffffff")}" +
                                         template1 +
                                         poem);
 
