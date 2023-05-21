@@ -1,5 +1,6 @@
 ﻿using SiteDataCreator.Image;
 using SiteDataCreator.Link;
+using SiteDataCreator.Music;
 using SiteDataCreator.Poem;
 using SiteDataCreator.Travel;
 using SiteDataCreator.Video;
@@ -12,6 +13,7 @@ try
     Console.WriteLine("t : Travel");
     Console.WriteLine("p : Poem");
     Console.WriteLine("l : Link");
+    Console.WriteLine("m : Music");
 
     var witch = Console.ReadLine()?.ToLower();
 
@@ -35,6 +37,10 @@ try
         
         case "l":
             await LinkCreator.Create();
+            break;
+        
+        case "m":
+            await MusicCreator.Create();
             break;
 
         default:

@@ -9,13 +9,13 @@ public static class PoemCreator
             Console.WriteLine("Start");
 
             var poems = new List<string>();
-            var counter = 2081;
+            var counter = 2564;
             const string resultFolder = "resultPoem";
             var today = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
             string? line;
             const string layout = "post";
-            const string user = "رهی‌معیری";
-            const string tags = "رهی‌معیری غزل";
+            const string user = "فریدون‌مشیری";
+            const string tags = "فریدون‌مشیری شعر‌نو";
             const string categories = "poem";
             var template = "---" +
                            "\n" +

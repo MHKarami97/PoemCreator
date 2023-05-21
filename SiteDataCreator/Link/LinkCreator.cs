@@ -9,12 +9,12 @@ public static class LinkCreator
             Console.WriteLine("Start");
 
             var links = new List<string>();
-            var counter = 02;
+            var counter = 71;
             const string resultFolder = "resultLink";
             var today = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
             string? line;
             const string layout = "post";
-            const string tags = "";
+            const string tags = "انگلیسی, برنامه‌نویسی";
             const string categories = "link";
             const string template = "---" +
                                     "\n" +
