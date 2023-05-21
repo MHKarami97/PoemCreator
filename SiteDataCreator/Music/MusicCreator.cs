@@ -50,11 +50,11 @@ public static class MusicCreator
                 await using var sw = new StreamWriter($"{resultFolder}\\{today}-{item}.md");
 
                 await sw.WriteAsync(template +
-                                    $"title: {song}" +
+                                    $"title:{song}" +
                                     "\n" +
                                     $"categories: [{name}]" +
                                     "\n" +
-                                    $"file: /assets/music/{name}.mp3" +
+                                    $"file: /assets/music/{item}.mp3" +
                                     template1);
             }
             catch (Exception e)
