@@ -15,17 +15,6 @@ public static class MusicCreator
 
         const string resultFolder = "resultMusic";
         var today = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
-        const string layout = "post";
-        const string type = "main";
-        const string template = "---" +
-                                "\n" +
-                                $"layout: {layout}" +
-                                "\n" +
-                                $"layout: {type}" +
-                                "\n";
-
-        const string template1 = "\n" +
-                                 "---";
 
         var directoryInfo = Directory.CreateDirectory(resultFolder);
 
@@ -49,13 +38,15 @@ public static class MusicCreator
 
                 await using var sw = new StreamWriter($"{resultFolder}\\{today}-{item}.md");
 
-                await sw.WriteAsync(template +
-                                    $"title:{song}" +
+                await sw.WriteAsync($"title:{song}" +
                                     "\n" +
+                                    "layout: post" +
                                     $"categories: [{name}]" +
                                     "\n" +
+                                    "type: main" +
                                     $"file: /assets/music/{item}.mp3" +
-                                    template1);
+                                    "\n" +
+                                    "---");
             }
             catch (Exception e)
             {
