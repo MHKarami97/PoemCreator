@@ -41,9 +41,11 @@ public static class MusicCreator
                 await sw.WriteAsync($"title:{song}" +
                                     "\n" +
                                     "layout: post" +
+                                    "\n" +
                                     $"categories: [{name}]" +
                                     "\n" +
                                     "type: main" +
+                                    "\n" +
                                     $"file: /assets/music/{item}.mp3" +
                                     "\n" +
                                     "---");
