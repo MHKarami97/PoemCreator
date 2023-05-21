@@ -38,7 +38,9 @@ public static class MusicCreator
 
                 await using var sw = new StreamWriter($"{resultFolder}\\{today}-{item}.md");
 
-                await sw.WriteAsync($"title:{song}" +
+                await sw.WriteAsync("---" +
+                                    "\n" +
+                                    $"title:{song}" +
                                     "\n" +
                                     "layout: post" +
                                     "\n" +
